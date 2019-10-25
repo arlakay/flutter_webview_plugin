@@ -52,7 +52,7 @@ public class BrowserClient extends WebViewClient {
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
         Map<String, Object> data = new HashMap<>();
-        data.put("url", view.getUrl);
+        data.put("url", view.getOriginalUrl());
 
         FlutterWebviewPlugin.channel.invokeMethod("onUrlChanged", data);
 
